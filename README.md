@@ -125,15 +125,6 @@ A provided `test.py` runs 20 diagnostic questions that verify:
 
 ---
 
-## 🎥 Submission Requirements (Bharat Digital Fellowship)
-A 2‑minute Loom video must cover:
-- Dataset discovery  
-- Architecture  
-- Working end‑to‑end demo  
-- Design decisions  
-- Handling mismatched government datasets  
-
----
 
 ## 📄 License
 Open-source for educational purposes.
@@ -142,3 +133,4 @@ Open-source for educational purposes.
 
 ## 👤 Author
 Samarth Prototype – Powered by FastAPI, DuckDB, and Streamlit.
+
