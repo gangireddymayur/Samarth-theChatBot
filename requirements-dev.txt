@@ -2,3 +2,4 @@
 pytest
 # fastapi 0.110's TestClient (starlette 0.36) needs the httpx API before 0.28
 httpx<0.28
+pytest-github-actions-annotate-failures
