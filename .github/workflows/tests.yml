@@ -14,4 +14,12 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements-dev.txt
-      - run: pytest -q -rfE
+      - name: pytest
+        shell: bash
+        run: |
+          set -o pipefail
+          pytest -q -rfE 2>&1 | tee pytest.log
+      - name: Report pytest output
+        if: failure()
+        shell: bash
+        run: echo "::error title=pytest output::$(tail -60 pytest.log | sed ':a;N;$!ba;s/%/%25/g;s/\r/%0D/g;s/\n/%0A/g')"
