@@ -35,7 +35,7 @@ from backend.utils.query_handler import handle_query
 app = FastAPI(title="Samarth - Backend (auto-ingest)")
 
 # Persistent DuckDB DB file
-con = duckdb.connect(database="samarth.duckdb")
+con = duckdb.connect(database=os.getenv("SAMARTH_DB", "samarth.duckdb"))
 
 # In-memory table metadata
 TABLE_META: Dict[str, Dict[str, Any]] = {}

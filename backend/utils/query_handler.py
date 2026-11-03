@@ -47,7 +47,7 @@ if os.path.exists(ALIASES_CSV):
 
 # ---------- regex intents ----------
 RE_COMPARE_RAIN = re.compile(
-    r"(?:compare|difference)\b.*\brainfall\b.*\bin\s*([A-Za-z &,\-()]+?)\s*(?:and|vs|v\.?)\s*([A-Za-z &,\-()]+?)(?:\s+for\s+the\s+last\s+(\d+)\s+years?)?",
+    r"(?:compare|difference)\b.*\brainfall\b.*\bin\s*([A-Za-z &,\-()]+?)\s+(?:and|vs\.?|v\.)\s+([A-Za-z &,\-()]+?)(?=\s+(?:for|over|during|from|with)\b|\s*[?.!]|\s*$)(?:\s+for\s+the\s+last\s+(\d+)\s+years?)?",
     re.I
 )
 RE_RAIN_TREND = re.compile(
@@ -71,14 +71,14 @@ RE_CROP_TREND = re.compile(
     re.I
 )
 RE_COMPARE_CROP = re.compile(
-    r"(?:compare)\b.*(?:production|yield|crop)\b.*\bin\s+([A-Za-z &,\-()]+?)\s*(?:and|vs)\s*([A-Za-z &,\-()]+?)(?:\s+for\s+the\s+last\s+(\d+)\s+years?)?",
+    r"(?:compare)\b.*(?:production|yield|crop)\b.*\bin\s+([A-Za-z &,\-()]+?)\s+(?:and|vs\.?)\s+([A-Za-z &,\-()]+?)(?=\s+(?:for|over|during|from|with)\b|\s*[?.!]|\s*$)(?:\s+for\s+the\s+last\s+(\d+)\s+years?)?",
     re.I
 )
 RE_RAINFALL_EXTREME = re.compile(r"which\s+subdivision\s+had\s+the\s+(highest|lowest|min|max)\s+rainfall\s+in\s+(\d{4})", re.I)
 RE_GENERIC_TOP = re.compile(r"top\s+(\d+)\s+([A-Za-z0-9\s]+)\s+in\s+([A-Za-z &,\-()]+)", re.I)
 
 RE_COMBINED_RAIN_CROPS = re.compile(
-    r"(?:compare|compare\s+both|compare\s+and)\b.*\brainfall\b.*(?:and|&)\s*(?:top\s+(\d+)\s+)?(?:most\s+produced\s+)?crops?.*in\s+([A-Za-z &,\-()]+?)\s*(?:and|vs|v)\s*([A-Za-z &,\-()]+?)(?:.*for\s+the\s+last\s+(\d+)\s+years?)?",
+    r"(?:compare|compare\s+both|compare\s+and)\b.*\brainfall\b.*(?:and|&)\s*(?:top\s+(\d+)\s+)?(?:most\s+produced\s+)?crops?.*in\s+([A-Za-z &,\-()]+?)\s+(?:and|vs\.?|v\.)\s+([A-Za-z &,\-()]+?)(?=\s+(?:for|over|during|from|with)\b|\s*[?.!]|\s*$)(?:.*for\s+the\s+last\s+(\d+)\s+years?)?",
     re.I
 )
 

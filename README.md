@@ -1,5 +1,7 @@
 # Samarth: Intelligent Agricultural & Climate Q&A System
 
+![tests](https://github.com/gangireddymayur/Samarth-theChatBot/actions/workflows/tests.yml/badge.svg)
+
 ## 🚀 Overview
 Samarth is an end‑to‑end intelligent Question‑Answering system built to enable cross‑domain insights from **Indian Government datasets**—primarily rainfall data and crop production data.  
 This system unifies inconsistent data sources, performs natural‑language query parsing, executes DuckDB‑backed analytical pipelines, and produces fully traceable, SQL‑driven answers.
@@ -108,12 +110,18 @@ samarth/
 ---
 
 ## 🧪 Testing
-A provided `test.py` runs 20 diagnostic questions that verify:
-- intent recognition  
-- rainfall queries  
-- crop queries  
-- correlation logic  
-- mixed-domain logic  
+An automated pytest suite in `tests/` runs every supported intent through the real FastAPI app (in-process, no server needed) and checks that:
+- each question type returns an answer **with the SQL that produced it**
+- both places in a comparison are kept intact (e.g. "Tamil Nadu", not "T")
+- "last N years" windows are applied
+- unknown and empty questions are rejected with a clear message
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
+
+Tests run on every push via GitHub Actions. `test.py` is still available as a manual diagnostic script against a running backend.
 
 ---
 
