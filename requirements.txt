@@ -2,6 +2,7 @@
 # Core Backend (FastAPI)
 # ---------------------------
 fastapi==0.110.0
+python-multipart==0.0.9  # required by the /ingest/upload endpoint
 uvicorn==0.27.1
 
 # ---------------------------
